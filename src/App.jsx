@@ -8,7 +8,7 @@ import NotFound from './pages/Error/NotFoundPage';
 
 // Components
 import NavBar from './components/Persistent/NavBar';
-import UserHeader from './components/Persistent/UserHeader';
+import Header from './components/Persistent/Header';
 import ArticleDetail from './components/Articles/ArticleDetail';
 
 const App = () => {
@@ -16,7 +16,7 @@ const App = () => {
     <div>
       <header>
         <NavBar />
-        <UserHeader />
+        <Header />
       </header>
       <main>
         <Routes>
