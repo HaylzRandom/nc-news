@@ -9,6 +9,7 @@ import NotFound from './pages/Error/NotFoundPage';
 // Components
 import NavBar from './components/Persistent/NavBar';
 import UserHeader from './components/Persistent/UserHeader';
+import ArticleDetail from './components/Articles/ArticleDetail';
 
 const App = () => {
   return (
@@ -22,6 +23,7 @@ const App = () => {
           <Route path='*' element={<NotFound />} />
           <Route path='/' element={<HomePage />} />
           <Route path='/articles' element={<Articles />} />
+          <Route path='/articles/:article_id' element={<ArticleDetail />} />
         </Routes>
       </main>
     </div>

@@ -1,20 +1,26 @@
 import { Link } from 'react-router-dom';
+import { format } from 'date-fns';
 
-const ArticlePreview = () => {
+const ArticlePreview = ({ article }) => {
+  const { article_id, author, title, created_at, article_img_url } = article;
+
+  const created = format(new Date(created_at), 'dd/MM/yyyy');
   return (
-    <article className='article'>
-      <img src='https://robohash.org/article' alt='' className='article-img' />
-      <div className='article-details'>
-        <div className='article-details_left'>
-          <Link to={`/article/article_id`} className='article-title'>
-            Article Title
+    <article className='article-preview'>
+      <img
+        src={article_img_url}
+        alt=''
+        className='article-preview-preview-img'
+      />
+      <div className='article-preview-details'>
+        <Link to={`/articles/${article_id}`} className='article-preview-title'>
+          {title}
+        </Link>
+        <div className='article-preview-details_information'>
+          <Link to={`/users/${author}`} className='article-preview-author'>
+            {author}
           </Link>
-          <Link to={`/users/username`} className='article-author'>
-            Username
-          </Link>
-        </div>
-        <div className='article-details_right'>
-          <p className='article-date'>Created at: 23/10/23</p>
+          <p className='article-date'>{created}</p>
         </div>
       </div>
     </article>
