@@ -19,3 +19,33 @@ export const getArticleById = (article_id) => {
       return article;
     });
 };
+
+export const updateArticleVote = (article_id, vote_count) => {
+  return request
+    .patch(`/articles/${article_id}`, {
+      inc_votes: vote_count,
+    })
+    .then(({ data: { article } }) => {
+      return article;
+    });
+};
+
+// Comments
+
+export const getCommentsForArticle = (article_id) => {
+  return request
+    .get(`/articles/${article_id}/comments`)
+    .then(({ data: { comments } }) => {
+      return comments;
+    });
+};
+
+export const updateCommentVote = (comment_id, comment_count) => {
+  return request
+    .patch(`/comments/${comment_id}`, {
+      inc_votes: comment_count,
+    })
+    .then(({ data: { comment } }) => {
+      return comment;
+    });
+};
