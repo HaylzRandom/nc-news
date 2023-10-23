@@ -2,11 +2,13 @@ import { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { format } from 'date-fns';
 
-import { getArticleById } from '../../api/api';
+import { getArticleById, updateArticleVote } from '../../api/api';
 
 // Components
 import Spinner from '../Basic/Spinner';
 import ErrorMsg from '../Basic/ErrorMsg';
+import CommentList from '../Comments/CommentList';
+import Votes from '../Votes';
 
 const ArticleDetail = () => {
   const { article_id } = useParams();
@@ -28,6 +30,17 @@ const ArticleDetail = () => {
         setIsLoading(false);
       });
   }, [article_id]);
+
+  const updateArticle = (value) => {
+    updateArticleVote(article_id, value)
+      .then((article) => {
+        console.log(article);
+        setError(null);
+      })
+      .catch(({ data: { error } }) => {
+        setError({ status: error.status, msg: error.message });
+      });
+  };
 
   let createdDate;
 
@@ -63,9 +76,15 @@ const ArticleDetail = () => {
 
         <p className='article-detail_body'>{article.body}</p>
         <div className='article-detail_container interactive'>
-          <p>{article.votes} Votes</p>
+          <Votes
+            type={'Votes'}
+            votes={article.votes}
+            update={updateArticle}
+            error={error}
+          />
           <p>{article.comment_count} Comments</p>
         </div>
+        <CommentList article_id={article_id} />
       </article>
     </section>
   );
