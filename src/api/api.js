@@ -6,10 +6,16 @@ const request = axios.create({
 
 // Articles
 
-export const getAllArticles = () => {
-  return request.get('/articles').then(({ data: { articles } }) => {
-    return articles;
-  });
+export const getAllArticles = (topic) => {
+  return request
+    .get('/articles', {
+      params: {
+        topic,
+      },
+    })
+    .then(({ data: { articles } }) => {
+      return articles;
+    });
 };
 
 export const getArticleById = (article_id) => {
@@ -66,5 +72,12 @@ export const updateCommentVote = (comment_id, comment_count) => {
 export const getUserByUsername = (username) => {
   return request.get(`/users/${username}`).then(({ data: { user } }) => {
     return user;
+  });
+};
+
+// Topics
+export const getTopics = () => {
+  return request.get('/topics').then(({ data: { topics } }) => {
+    return topics;
   });
 };
