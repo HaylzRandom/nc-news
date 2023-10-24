@@ -10,6 +10,7 @@ import NotFound from './pages/Error/NotFoundPage';
 import NavBar from './components/Persistent/NavBar';
 import Header from './components/Persistent/Header';
 import ArticleDetail from './components/Articles/ArticleDetail';
+import TopicsPage from './pages/Topics/TopicsPage';
 
 const App = () => {
   return (
@@ -24,6 +25,7 @@ const App = () => {
           <Route path='/' element={<HomePage />} />
           <Route path='/articles' element={<Articles />} />
           <Route path='/articles/:article_id' element={<ArticleDetail />} />
+          <Route path='/topics' element={<TopicsPage />} />
         </Routes>
       </main>
     </div>

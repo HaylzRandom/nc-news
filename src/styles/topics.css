@@ -1,0 +1,9 @@
+.topics-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5em;
+}
+
+.topics-link {
+  text-transform: capitalize;
+}

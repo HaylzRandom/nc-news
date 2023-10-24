@@ -68,3 +68,10 @@ export const getUserByUsername = (username) => {
     return user;
   });
 };
+
+// Topics
+export const getTopics = () => {
+  return request.get('/topics').then(({ data: { topics } }) => {
+    return topics;
+  });
+};
