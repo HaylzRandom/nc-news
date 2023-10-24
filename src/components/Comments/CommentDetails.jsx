@@ -9,17 +9,23 @@ import Spinner from '../Basic/Spinner';
 const CommentDetails = ({ comment }) => {
   const { author, body, created_at, votes, comment_id } = comment;
 
-  const [error, setError] = useState(null);
+  const [updateError, setUpdateError] = useState(null);
+  const [updateMsg, setUpdateMsg] = useState(null);
 
   const createdDate = format(new Date(created_at), 'dd/MM/yyyy');
 
   const updateComment = (value) => {
     updateCommentVote(comment_id, value)
       .then((comment) => {
-        setError(null);
+        setUpdateMsg(comment);
+        setUpdateError(null);
       })
-      .catch(({ data: { error } }) => {
-        setError({ status: error.status, msg: error.message });
+      .catch((error) => {
+        if (error.code === 'ERR_NETWORK') {
+          setUpdateError('Internet Issues, please try again later!');
+        } else {
+          setUpdateError('Something went wrong, try again later!');
+        }
       });
   };
 
@@ -34,7 +40,8 @@ const CommentDetails = ({ comment }) => {
           type={'votes'}
           votes={votes}
           update={updateComment}
-          error={error}
+          message={updateMsg}
+          error={updateError}
         />
       </div>
     </li>

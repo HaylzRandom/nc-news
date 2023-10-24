@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-const Votes = ({ type, votes, update, error }) => {
+const Votes = ({ type, votes, update, message, error }) => {
   const [userVotes, setUserVotes] = useState(0);
 
   const updateVotes = (value) => {
@@ -15,6 +15,7 @@ const Votes = ({ type, votes, update, error }) => {
       <p>
         {type}: {votes + userVotes}
       </p>
+      {message && <p>Thanks for the vote!</p>}
       {!error ? (
         <>
           <button
@@ -37,7 +38,7 @@ const Votes = ({ type, votes, update, error }) => {
           </button>
         </>
       ) : (
-        <p>Voting Unavailable!</p>
+        <p>{error}</p>
       )}
     </div>
   );
