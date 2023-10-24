@@ -1,5 +1,4 @@
 const UserHeader = ({ user }) => {
-  console.log(user);
   const { username, name, avatar_url } = user;
   return (
     <article className='user-header'>

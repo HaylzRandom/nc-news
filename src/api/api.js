@@ -40,6 +40,18 @@ export const getCommentsForArticle = (article_id) => {
     });
 };
 
+export const addComment = (body, article_id, username) => {
+  return request
+    .post(`/articles/${article_id}/comments`, {
+      body,
+      article_id,
+      username,
+    })
+    .then(({ data: { comment } }) => {
+      return comment;
+    });
+};
+
 export const updateCommentVote = (comment_id, comment_count) => {
   return request
     .patch(`/comments/${comment_id}`, {

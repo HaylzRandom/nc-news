@@ -11,8 +11,6 @@ import UserHeader from './UserHeader';
 const Header = () => {
   const { user, setUser } = useContext(UserContext);
 
-  console.log(user);
-
   const [newUser, setNewUser] = useState('');
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
