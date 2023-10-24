@@ -8,6 +8,7 @@ import ArticlePreview from '../../components/Articles/ArticlePreview';
 import Spinner from '../../components/Basic/Spinner';
 import ErrorMsg from '../../components/Basic/ErrorMsg';
 import { useSearchParams } from 'react-router-dom';
+import FilterArticles from '../../components/FilterArticles';
 
 const Articles = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -16,7 +17,7 @@ const Articles = () => {
   const [topics, setTopics] = useState(null);
   const [searchParams, setSearchParams] = useSearchParams();
 
-  console.log(searchParams);
+  // console.log(searchParams);
 
   // Queries
   const topicQuery = searchParams.get('topic');
@@ -53,31 +54,7 @@ const Articles = () => {
       <h2 className='topic-heading'>
         {topicQuery ? `${topicQuery} Articles` : `All Articles`}
       </h2>
-      <h3>Filter Results</h3>
-      <div className='query-container'>
-        {/* TODO - Choose by topic - buttons for now, may change later */}
-        <h4>Filter by Topic</h4>
-        <ul role='list' className='article-topic-btns'>
-          <button type='button' onClick={() => setTopic('')}>
-            All Topics
-          </button>
-          {topics.map((topic) => {
-            return (
-              <button
-                type='button'
-                key={topic.slug}
-                onClick={() => setTopic(topic.slug)}
-                className='topic-btn'
-              >
-                {topic.slug}
-              </button>
-            );
-          })}
-        </ul>
-
-        {/* TODO - Choose what to sort by */}
-        {/* TODO - Choose if ascending or descending */}
-      </div>
+      <FilterArticles topics={topics} setTopic={setTopic} topic={topicQuery} />
       <div className='articles-container'>
         {articles.map((article) => {
           return <ArticlePreview key={article.article_id} article={article} />;
