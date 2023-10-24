@@ -4,11 +4,11 @@
 
 ### User Stories
 
-- [ ] User should be able to view a list of all articles
-- [ ] User should be able to view an individual articles
-- [ ] User should be able to view a list of all comments associated with an article
-- [ ] User should be able to vote on an article
-- [ ] User should be able to add a new comment to an existing article
+- [x] User should be able to view a list of all articles
+- [x] User should be able to view an individual articles
+- [x] User should be able to view a list of all comments associated with an article
+- [x] User should be able to vote on an article
+- [x] User should be able to add a new comment to an existing article
 - [ ] User should be able to see a list of topics that currently have articles
 - [ ] User should be able to see a list of articles based on a topic
 - [ ] User should be able to create a new article
@@ -25,14 +25,14 @@
 
 ### [API](https://nc-news-api-ga04.onrender.com/api/)
 
-- [ ] GET /articles
+- [x] GET /articles
 - [ ] POST /articles
-- [ ] GET /articles/:article_id
-- [ ] PATCH /articles/:article_id
+- [x] GET /articles/:article_id
+- [x] PATCH /articles/:article_id
 - [ ] DELETE /articles/:article_id
-- [ ] GET /articles/:article_id/comments
-- [ ] POST /articles/:article_id/comments
-- [ ] PATCH /comments/:comment_id
+- [x] GET /articles/:article_id/comments
+- [x] POST /articles/:article_id/comments
+- [x] PATCH /comments/:comment_id
 - [ ] DELETE /comments/:comment_id
 - [ ] GET /users
 - [ ] GET /users/:username

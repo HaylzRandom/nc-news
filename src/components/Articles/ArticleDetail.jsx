@@ -41,6 +41,11 @@ const ArticleDetail = () => {
       .then((article) => {
         setUpdateMsg(article);
         setUpdateError(null);
+
+        // Set the confirm message to disappear
+        setTimeout(() => {
+          setUpdateMsg(null);
+        }, 5000);
       })
       .catch((error) => {
         if (error.code === 'ERR_NETWORK') {
