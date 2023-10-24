@@ -6,10 +6,16 @@ const request = axios.create({
 
 // Articles
 
-export const getAllArticles = () => {
-  return request.get('/articles').then(({ data: { articles } }) => {
-    return articles;
-  });
+export const getAllArticles = (topic) => {
+  return request
+    .get('/articles', {
+      params: {
+        topic,
+      },
+    })
+    .then(({ data: { articles } }) => {
+      return articles;
+    });
 };
 
 export const getArticleById = (article_id) => {

@@ -10,6 +10,20 @@
   margin-top: 1em;
 }
 
+.query-container {
+  max-width: 80%;
+}
+
+.article-topic-btns {
+  margin-left: 0;
+  display: flex;
+  justify-content: space-around;
+}
+
+.topic-btn {
+  text-transform: capitalize;
+}
+
 /* Article Preview */
 
 .article-preview {
