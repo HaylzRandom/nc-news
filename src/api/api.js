@@ -49,3 +49,10 @@ export const updateCommentVote = (comment_id, comment_count) => {
       return comment;
     });
 };
+
+// Users
+export const getUserByUsername = (username) => {
+  return request.get(`/users/${username}`).then(({ data: { user } }) => {
+    return user;
+  });
+};
