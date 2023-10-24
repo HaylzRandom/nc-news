@@ -50,7 +50,7 @@ const Articles = () => {
 
   return (
     <section className='articles'>
-      <h2>Topic Articles</h2>
+      {topicQuery ? <h2>{topicQuery} Articles</h2> : <h2>All Articles</h2>}
       <h3>Filter Results</h3>
       <div className='query-container'>
         {/* TODO - Choose by topic - buttons for now, may change later */}
