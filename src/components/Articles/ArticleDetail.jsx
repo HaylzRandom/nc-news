@@ -16,12 +16,17 @@ const ArticleDetail = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
   const [article, setArticle] = useState(null);
+  const [formatDate, setFormatDate] = useState(null);
+
+  const [updateError, setUpdateError] = useState(null);
+  const [updateMsg, setUpdateMsg] = useState(null);
 
   useEffect(() => {
     setIsLoading(true);
     getArticleById(article_id)
       .then((article) => {
         setArticle(article);
+        setFormatDate(format(new Date(article.created_at), 'dd/MM/yyyy'));
         setError(null);
         setIsLoading(false);
       })
@@ -34,17 +39,17 @@ const ArticleDetail = () => {
   const updateArticle = (value) => {
     updateArticleVote(article_id, value)
       .then((article) => {
-        console.log(article);
-        setError(null);
+        setUpdateMsg(article);
+        setUpdateError(null);
       })
-      .catch(({ data: { error } }) => {
-        setError({ status: error.status, msg: error.message });
+      .catch((error) => {
+        if (error.code === 'ERR_NETWORK') {
+          setUpdateError('Internet Issues, please try again later!');
+        } else {
+          setUpdateError('Something went wrong, try again later!');
+        }
       });
   };
-
-  let createdDate;
-
-  if (article) createdDate = format(new Date(article.created_at), 'dd/MM/yyyy');
 
   if (isLoading) return <Spinner />;
   if (error) return <ErrorMsg status={error.status} message={error.msg} />;
@@ -71,7 +76,7 @@ const ArticleDetail = () => {
           <Link className='article-detail_author' to={`/users/username`}>
             {article.author}
           </Link>
-          <p className='article-detail_date'>{createdDate}</p>
+          <p className='article-detail_date'>{formatDate}</p>
         </div>
 
         <p className='article-detail_body'>{article.body}</p>
@@ -80,7 +85,8 @@ const ArticleDetail = () => {
             type={'Votes'}
             votes={article.votes}
             update={updateArticle}
-            error={error}
+            message={updateMsg}
+            error={updateError}
           />
           <p>{article.comment_count} Comments</p>
         </div>
