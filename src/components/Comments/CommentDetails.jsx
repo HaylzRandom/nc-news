@@ -2,9 +2,9 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { format } from 'date-fns';
 import Votes from '../Votes';
-import { updateCommentVote } from '../../api/api';
+import { deleteCommentById, updateCommentVote } from '../../api/api';
 
-const CommentDetails = ({ comment }) => {
+const CommentDetails = ({ comment, user, commentDeleted }) => {
   const { author, body, created_at, votes, comment_id } = comment;
 
   const [updateError, setUpdateError] = useState(null);
@@ -32,6 +32,16 @@ const CommentDetails = ({ comment }) => {
       });
   };
 
+  const deleteComment = () => {
+    deleteCommentById(comment_id)
+      .then((response) => {
+        commentDeleted(true);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
   return (
     <li>
       <Link className='comment_username'>{author}</Link>
@@ -45,6 +55,11 @@ const CommentDetails = ({ comment }) => {
           message={updateMsg}
           error={updateError}
         />
+        {user && user.username === author && (
+          <button type='button' onClick={deleteComment}>
+            Delete
+          </button>
+        )}
       </div>
     </li>
   );

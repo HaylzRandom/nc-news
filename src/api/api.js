@@ -68,6 +68,12 @@ export const updateCommentVote = (comment_id, comment_count) => {
     });
 };
 
+export const deleteCommentById = (comment_id) => {
+  return request.delete(`comments/${comment_id}`).then((response) => {
+    return response;
+  });
+};
+
 // Users
 export const getUserByUsername = (username) => {
   return request.get(`users/${username}`).then(({ data: { user } }) => {
