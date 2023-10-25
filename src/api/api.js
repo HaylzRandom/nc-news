@@ -6,11 +6,13 @@ const request = axios.create({
 
 // Articles
 
-export const getAllArticles = (topic) => {
+export const getAllArticles = (sortBy, topic = null, order) => {
   return request
-    .get('/articles', {
+    .get('articles', {
       params: {
+        sort_by: sortBy,
         topic,
+        order,
       },
     })
     .then(({ data: { articles } }) => {
@@ -19,16 +21,14 @@ export const getAllArticles = (topic) => {
 };
 
 export const getArticleById = (article_id) => {
-  return request
-    .get(`/articles/${article_id}`)
-    .then(({ data: { article } }) => {
-      return article;
-    });
+  return request.get(`articles/${article_id}`).then(({ data: { article } }) => {
+    return article;
+  });
 };
 
 export const updateArticleVote = (article_id, vote_count) => {
   return request
-    .patch(`/articles/${article_id}`, {
+    .patch(`articles/${article_id}`, {
       inc_votes: vote_count,
     })
     .then(({ data: { article } }) => {
@@ -40,7 +40,7 @@ export const updateArticleVote = (article_id, vote_count) => {
 
 export const getCommentsForArticle = (article_id) => {
   return request
-    .get(`/articles/${article_id}/comments`)
+    .get(`articles/${article_id}/comments`)
     .then(({ data: { comments } }) => {
       return comments;
     });
@@ -48,7 +48,7 @@ export const getCommentsForArticle = (article_id) => {
 
 export const addComment = (body, article_id, username) => {
   return request
-    .post(`/articles/${article_id}/comments`, {
+    .post(`articles/${article_id}/comments`, {
       body,
       article_id,
       username,
@@ -60,7 +60,7 @@ export const addComment = (body, article_id, username) => {
 
 export const updateCommentVote = (comment_id, comment_count) => {
   return request
-    .patch(`/comments/${comment_id}`, {
+    .patch(`comments/${comment_id}`, {
       inc_votes: comment_count,
     })
     .then(({ data: { comment } }) => {
@@ -70,14 +70,14 @@ export const updateCommentVote = (comment_id, comment_count) => {
 
 // Users
 export const getUserByUsername = (username) => {
-  return request.get(`/users/${username}`).then(({ data: { user } }) => {
+  return request.get(`users/${username}`).then(({ data: { user } }) => {
     return user;
   });
 };
 
 // Topics
 export const getTopics = () => {
-  return request.get('/topics').then(({ data: { topics } }) => {
+  return request.get('topics').then(({ data: { topics } }) => {
     return topics;
   });
 };

@@ -2,7 +2,15 @@ import { Link } from 'react-router-dom';
 import { format } from 'date-fns';
 
 const ArticlePreview = ({ article }) => {
-  const { article_id, author, title, created_at, article_img_url } = article;
+  const {
+    article_id,
+    author,
+    title,
+    created_at,
+    article_img_url,
+    votes,
+    comment_count,
+  } = article;
 
   const created = format(new Date(created_at), 'dd/MM/yyyy');
   return (
@@ -22,6 +30,9 @@ const ArticlePreview = ({ article }) => {
           </Link>
           <p className='article-date'>{created}</p>
         </div>
+        <p>Votes: {votes}</p>
+        <p>Comments: {comment_count}</p>
+        <p>Article ID: {article_id}</p>
       </div>
     </article>
   );

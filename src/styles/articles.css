@@ -1,17 +1,40 @@
 /* Articles Page */
-.query-container {
-  max-width: 80%;
-}
 
-.article-topic-btns {
-  margin-left: 0;
-  display: flex;
-  justify-content: space-around;
-}
-
-.topic-btn,
 .topic-heading {
+  margin-bottom: 1.5rem;
+}
+
+/* Filter Articles */
+.filter-heading {
+  margin-bottom: 1.5rem;
+}
+.query-container {
+  padding: 1em;
+  border: 1px solid black;
+  max-width: 550px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1em;
+  box-shadow: 1px 0 2px 1px black;
+}
+
+.query-list {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  gap: 1em;
+  padding: 1em;
+}
+
+.query-list_label {
   text-transform: capitalize;
+}
+
+.query-submit-btn {
+  width: 150px;
+  padding: 0.5em;
+  border-radius: 2rem;
 }
 
 .articles-container {
