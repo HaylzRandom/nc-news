@@ -32,7 +32,6 @@ const ArticlePreview = ({ article }) => {
         </div>
         <p>Votes: {votes}</p>
         <p>Comments: {comment_count}</p>
-        <p>Article ID: {article_id}</p>
       </div>
     </article>
   );
