@@ -2,6 +2,7 @@
 
 .topic-heading {
   margin-bottom: 1.5rem;
+  text-transform: capitalize;
 }
 
 /* Filter Articles */
@@ -118,4 +119,8 @@
   display: flex;
   flex-direction: column;
   gap: 0.5em;
+}
+
+.no-comments {
+  margin-top: 1em;
 }

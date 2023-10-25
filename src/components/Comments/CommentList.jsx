@@ -55,12 +55,17 @@ const CommentList = ({ article_id }) => {
           />
         )
       )}
-
-      <ul className='comment-list' role='list'>
-        {comments.map((comment) => {
-          return <CommentDetails key={comment.comment_id} comment={comment} />;
-        })}
-      </ul>
+      {comments ? (
+        <ul className='comment-list' role='list'>
+          {comments.map((comment) => {
+            return (
+              <CommentDetails key={comment.comment_id} comment={comment} />
+            );
+          })}
+        </ul>
+      ) : (
+        <p className='no-comments'>No comments found, want to add one?</p>
+      )}
     </section>
   );
 };
