@@ -1,7 +1,7 @@
 const ErrorMsg = ({ status, message }) => {
   return (
     <div>
-      <p>Error: {status}</p>
+      {status && <p>Error: {status}</p>}
       <p>Message: {message}</p>
     </div>
   );

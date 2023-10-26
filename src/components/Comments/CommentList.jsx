@@ -38,13 +38,17 @@ const CommentList = ({ article_id }) => {
         setCommentDeleted(null);
       })
       .catch((error) => {
-        console.log(error);
+        if (error.code === 'ERR_NETWORK') {
+          setError({
+            message: 'No internet connection, please try again later',
+          });
+        } else {
+          const { data, status } = error.response;
+          setError({ status: status, message: data.msg });
+        }
+        setIsLoading(false);
+        setCommentDeleted(null);
       });
-    // .catch(({ data: error }) => {
-    //   setError({ status: error.status, msg: error.message });
-    //   setIsLoading(false);
-    //   setCommentDeleted(null);
-    // });
   }, [article_id, newComment, commentDeleted]);
 
   if (isLoading) return <Spinner />;

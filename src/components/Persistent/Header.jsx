@@ -7,6 +7,7 @@ import { getUserByUsername } from '../../api/api';
 import Spinner from '../Basic/Spinner';
 import UserHeader from './UserHeader';
 import ErrorPage from '../../pages/Error/ErrorPage';
+import ErrorMsg from '../Basic/ErrorMsg';
 
 const Header = () => {
   const { user, setUser } = useContext(UserContext);
@@ -27,14 +28,21 @@ const Header = () => {
         setError(null);
         setIsLoading(false);
       })
-      .catch(({ data: { error } }) => {
-        setError({ status: error.status, msg: error.message });
+      .catch((error) => {
+        if (error.code === 'ERR_NETWORK') {
+          setError({
+            message: 'No internet connection, please try again later',
+          });
+        } else {
+          const { data, status } = error.response;
+          setError({ status: status, message: data.msg });
+        }
         setIsLoading(false);
       });
   }, [newUser, setUser]);
 
   if (isLoading) return <Spinner />;
-  if (error) return <ErrorPage error={error} />;
+  if (error) return <ErrorMsg status={error.status} message={error.message} />;
 
   return (
     <div className='user-container'>
