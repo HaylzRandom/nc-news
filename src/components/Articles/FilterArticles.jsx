@@ -3,7 +3,6 @@ import { useState } from 'react';
 const FilterArticles = ({ topics, topic, sort, order, setParams }) => {
   const sortQueries = [
     { name: 'Date', value: 'created_at' },
-    { name: 'Article Number', value: 'article_id' },
     { name: 'Votes', value: 'votes' },
     { name: 'Author', value: 'author' },
   ];
