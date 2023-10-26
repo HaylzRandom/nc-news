@@ -20,6 +20,7 @@ const ArticleDetail = () => {
 
   const [updateError, setUpdateError] = useState(null);
   const [updateMsg, setUpdateMsg] = useState(null);
+  const [updateProgress, setUpdateProgress] = useState(null);
 
   useEffect(() => {
     setIsLoading(true);
@@ -37,10 +38,12 @@ const ArticleDetail = () => {
   }, [article_id]);
 
   const updateArticle = (value) => {
+    setUpdateProgress('Please wait, processing vote...');
     updateArticleVote(article_id, value)
       .then((article) => {
         setUpdateMsg(article);
         setUpdateError(null);
+        setUpdateProgress(null);
 
         // Set the confirm message to disappear
         setTimeout(() => {
@@ -48,6 +51,7 @@ const ArticleDetail = () => {
         }, 5000);
       })
       .catch((error) => {
+        setUpdateProgress(null);
         if (error.code === 'ERR_NETWORK') {
           setUpdateError('Internet Issues, please try again later!');
         } else {

@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-const Votes = ({ type, votes, update, message, error }) => {
+const Votes = ({ type, votes, update, message, progress, error }) => {
   const [userVotes, setUserVotes] = useState(0);
 
   const updateVotes = (value) => {
@@ -10,12 +10,13 @@ const Votes = ({ type, votes, update, message, error }) => {
     update(value);
   };
 
+  if (progress) return <p>{progress}</p>;
+  if (message) return <p>Thanks for the vote!</p>;
   return (
     <div>
       <p>
         {type}: {votes + userVotes}
       </p>
-      {message && <p>Thanks for the vote!</p>}
       {!error ? (
         <>
           <button

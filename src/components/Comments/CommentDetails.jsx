@@ -9,6 +9,7 @@ const CommentDetails = ({ comment, user, setCommentDeleted }) => {
 
   const [updateError, setUpdateError] = useState(null);
   const [updateMsg, setUpdateMsg] = useState(null);
+  const [updateProgress, setUpdateProgress] = useState(null);
 
   const [deleteError, setDeleteError] = useState(null);
   const [deleteMsg, setDeleteMsg] = useState(null);
@@ -17,10 +18,12 @@ const CommentDetails = ({ comment, user, setCommentDeleted }) => {
   const createdDate = format(new Date(created_at), 'dd/MM/yyyy');
 
   const handleUpdateComment = (value) => {
+    setUpdateProgress('Please wait, processing vote...');
     updateCommentVote(comment_id, value)
       .then((comment) => {
         setUpdateMsg(comment);
         setUpdateError(null);
+        setUpdateProgress(null);
 
         // Set the confirm message to disappear
         // TODO - Split timeout into own hook
@@ -29,6 +32,7 @@ const CommentDetails = ({ comment, user, setCommentDeleted }) => {
         }, 5000);
       })
       .catch((error) => {
+        setUpdateProgress(null);
         if (error.code === 'ERR_NETWORK') {
           setUpdateError('Internet Issues, please try again later!');
         } else {
@@ -48,6 +52,7 @@ const CommentDetails = ({ comment, user, setCommentDeleted }) => {
       .then(() => {
         setDeleteMsg('Your comment has been deleted!');
         setDeleteProgress(null);
+        setDeleteError(null);
 
         setTimeout(() => {
           setDeleteMsg(null);
@@ -85,6 +90,7 @@ const CommentDetails = ({ comment, user, setCommentDeleted }) => {
             votes={votes}
             update={handleUpdateComment}
             message={updateMsg}
+            progress={updateProgress}
             error={updateError}
           />
           {user && user.username === author && (
