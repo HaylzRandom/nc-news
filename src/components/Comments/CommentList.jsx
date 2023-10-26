@@ -14,29 +14,33 @@ const CommentList = ({ article_id }) => {
   const [error, setError] = useState(null);
   const [comments, setComments] = useState(null);
   const [newComment, setNewComment] = useState(null);
-  const [commentDeleted, setCommentDeleted] = useState(false);
+  const [commentDeleted, setCommentDeleted] = useState(null);
   const [confirmMsg, setConfirmMsg] = useState(null);
 
+  // TODO - Need to update number of comments on articles when new/delete comment happens without lots of re-renders
   useEffect(() => {
     setIsLoading(true);
     getCommentsForArticle(article_id)
       .then((comments) => {
-        setComments(comments);
-        setError(null);
-        setIsLoading(false);
-        setCommentDeleted(false);
         if (newComment) {
           setConfirmMsg('New comment added!');
 
           // Set the confirm message to disappear
           setTimeout(() => {
             setConfirmMsg(null);
+            setNewComment(null);
           }, 5000);
         }
+
+        setComments(comments);
+        setError(null);
+        setIsLoading(false);
+        setCommentDeleted(null);
       })
       .catch(({ data: error }) => {
         setError({ status: error.status, msg: error.message });
         setIsLoading(false);
+        setCommentDeleted(null);
       });
   }, [article_id, newComment, commentDeleted]);
 
@@ -55,7 +59,7 @@ const CommentList = ({ article_id }) => {
           />
         )
       )}
-      {comments ? (
+      {comments.length > 0 ? (
         <ul className='comment-list' role='list'>
           {comments.map((comment) => {
             return (
@@ -63,7 +67,7 @@ const CommentList = ({ article_id }) => {
                 key={comment.comment_id}
                 comment={comment}
                 user={user}
-                commentDeleted={setCommentDeleted}
+                setCommentDeleted={setCommentDeleted}
               />
             );
           })}
