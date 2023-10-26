@@ -6,9 +6,9 @@ import { getAllArticles, getTopics } from '../../api/api';
 
 import ArticlePreview from '../../components/Articles/ArticlePreview';
 import Spinner from '../../components/Basic/Spinner';
-import ErrorMsg from '../../components/Basic/ErrorMsg';
 import { useSearchParams } from 'react-router-dom';
 import FilterArticles from '../../components/Articles/FilterArticles';
+import ErrorPage from '../Error/ErrorPage';
 
 const Articles = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -51,14 +51,20 @@ const Articles = () => {
         setIsLoading(false);
       })
       .catch((error) => {
-        console.log(error);
-        setError({ status: error.status, msg: error.message });
+        if (error.code === 'ERR_NETWORK') {
+          setError({
+            message: 'No internet connection, please try again later',
+          });
+        } else {
+          const { data, status } = error.response;
+          setError({ status: status, message: data.msg });
+        }
         setIsLoading(false);
       });
   }, [topicQuery, sortByQuery, orderQuery]);
 
   if (isLoading) return <Spinner />;
-  if (error) return <ErrorMsg status={error.status} message={error.msg} />;
+  if (error) return <ErrorPage error={error} />;
 
   return (
     <section className='articles'>

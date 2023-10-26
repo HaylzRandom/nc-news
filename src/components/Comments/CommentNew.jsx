@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
 import { addComment } from '../../api/api';
-import ErrorMsg from '../Basic/ErrorMsg';
+import ErrorPage from '../../pages/Error/ErrorPage';
 
 // TODO - Make this into a modal
 
@@ -30,7 +30,7 @@ const CommentNew = ({ article, setNewComment, user }) => {
       });
   };
 
-  if (error) return <ErrorMsg status={error.status} message={error.msg} />;
+  if (error) return <ErrorPage error={error} />;
   if (processing) return <p>Creating Comment...</p>;
   return (
     <>

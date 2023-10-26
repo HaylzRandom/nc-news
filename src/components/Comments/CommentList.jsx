@@ -2,10 +2,10 @@ import { useEffect, useState, useContext } from 'react';
 
 import { getCommentsForArticle } from '../../api/api';
 import Spinner from '../Basic/Spinner';
-import ErrorMsg from '../Basic/ErrorMsg';
 import CommentDetails from './CommentDetails';
 import CommentNew from './CommentNew';
 import { UserContext } from '../../contexts/User';
+import ErrorPage from '../../pages/Error/ErrorPage';
 
 const CommentList = ({ article_id }) => {
   const { user } = useContext(UserContext);
@@ -37,17 +37,21 @@ const CommentList = ({ article_id }) => {
         setIsLoading(false);
         setCommentDeleted(null);
       })
-      .catch(({ data: error }) => {
-        setError({ status: error.status, msg: error.message });
-        setIsLoading(false);
-        setCommentDeleted(null);
+      .catch((error) => {
+        console.log(error);
       });
+    // .catch(({ data: error }) => {
+    //   setError({ status: error.status, msg: error.message });
+    //   setIsLoading(false);
+    //   setCommentDeleted(null);
+    // });
   }, [article_id, newComment, commentDeleted]);
 
   if (isLoading) return <Spinner />;
-  if (error) return <ErrorMsg status={error.status} message={error.msg} />;
+  if (error) return <ErrorPage error={error} />;
   return (
     <section className='comments'>
+      {!user && <p>Want to add a comment? Make sure to login!</p>}
       {confirmMsg && user ? (
         <p>{confirmMsg}</p>
       ) : (

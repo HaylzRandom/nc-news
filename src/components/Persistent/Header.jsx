@@ -5,8 +5,8 @@ import '../../styles/header.css';
 import { UserContext } from '../../contexts/User';
 import { getUserByUsername } from '../../api/api';
 import Spinner from '../Basic/Spinner';
-import ErrorMsg from '../Basic/ErrorMsg';
 import UserHeader from './UserHeader';
+import ErrorPage from '../../pages/Error/ErrorPage';
 
 const Header = () => {
   const { user, setUser } = useContext(UserContext);
@@ -34,7 +34,7 @@ const Header = () => {
   }, [newUser, setUser]);
 
   if (isLoading) return <Spinner />;
-  if (error) return <ErrorMsg status={error.status} message={error.msg} />;
+  if (error) return <ErrorPage error={error} />;
 
   return (
     <div className='user-container'>

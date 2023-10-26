@@ -1,5 +1,6 @@
 import { useState } from 'react';
 
+// TODO - Figure out how to reset the value of userVotes when no internet connection
 const Votes = ({ type, votes, update, message, progress, error }) => {
   const [userVotes, setUserVotes] = useState(0);
 
