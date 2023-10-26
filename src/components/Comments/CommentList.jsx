@@ -29,7 +29,7 @@ const CommentList = ({ article_id }) => {
           setTimeout(() => {
             setConfirmMsg(null);
             setNewComment(null);
-          }, 5000);
+          }, 2500);
         }
 
         setComments(comments);

@@ -48,7 +48,7 @@ const ArticleDetail = () => {
         // Set the confirm message to disappear
         setTimeout(() => {
           setUpdateMsg(null);
-        }, 5000);
+        }, 2500);
       })
       .catch((error) => {
         setUpdateProgress(null);
