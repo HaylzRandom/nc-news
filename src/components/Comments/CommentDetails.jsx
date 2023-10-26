@@ -29,7 +29,7 @@ const CommentDetails = ({ comment, user, setCommentDeleted }) => {
         // TODO - Split timeout into own hook
         setTimeout(() => {
           setUpdateMsg(null);
-        }, 5000);
+        }, 2500);
       })
       .catch((error) => {
         setUpdateProgress(null);
@@ -41,7 +41,7 @@ const CommentDetails = ({ comment, user, setCommentDeleted }) => {
 
         setTimeout(() => {
           setUpdateError(null);
-        }, 10000);
+        }, 2500);
       });
   };
 
@@ -57,7 +57,7 @@ const CommentDetails = ({ comment, user, setCommentDeleted }) => {
         setTimeout(() => {
           setDeleteMsg(null);
           setCommentDeleted('deleted');
-        }, 5000);
+        }, 2500);
         //
       })
       .catch((error) => {
@@ -70,7 +70,7 @@ const CommentDetails = ({ comment, user, setCommentDeleted }) => {
 
         setTimeout(() => {
           setDeleteError(null);
-        }, 10000);
+        }, 2500);
       });
   };
 

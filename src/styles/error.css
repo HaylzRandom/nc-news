@@ -1,0 +1,23 @@
+/* Error Page */
+
+.error-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2em;
+  padding: 1em;
+}
+
+.error-page_heading {
+  font-size: 2rem;
+}
+
+.error-page_description {
+  font-size: 1.5rem;
+}
+
+.error-page_navigation {
+  padding: 1em;
+  max-width: 250px;
+}

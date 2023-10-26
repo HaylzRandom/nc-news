@@ -1,6 +1,7 @@
 import { useState } from 'react';
 
 import { addComment } from '../../api/api';
+import ErrorPage from '../../pages/Error/ErrorPage';
 import ErrorMsg from '../Basic/ErrorMsg';
 
 // TODO - Make this into a modal
@@ -24,13 +25,21 @@ const CommentNew = ({ article, setNewComment, user }) => {
         setProcessing(false);
       })
       .catch((error) => {
+        console.log(error);
+        if (error.code === 'ERR_NETWORK') {
+          setError({
+            message: 'No internet connection, please try again later',
+          });
+        } else {
+          const { data, status } = error.response;
+          setError({ status: status, message: data.msg });
+        }
         setNewComment(null);
-        setError({ status: error.status, msg: error.message });
         setProcessing(false);
       });
   };
 
-  if (error) return <ErrorMsg status={error.status} message={error.msg} />;
+  if (error) return <ErrorMsg status={error.status} message={error.message} />;
   if (processing) return <p>Creating Comment...</p>;
   return (
     <>

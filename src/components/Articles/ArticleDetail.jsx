@@ -6,9 +6,9 @@ import { getArticleById, updateArticleVote } from '../../api/api';
 
 // Components
 import Spinner from '../Basic/Spinner';
-import ErrorMsg from '../Basic/ErrorMsg';
 import CommentList from '../Comments/CommentList';
 import Votes from '../Votes';
+import ErrorPage from '../../pages/Error/ErrorPage';
 
 const ArticleDetail = () => {
   const { article_id } = useParams();
@@ -31,8 +31,16 @@ const ArticleDetail = () => {
         setError(null);
         setIsLoading(false);
       })
-      .catch(({ data: { error } }) => {
-        setError({ status: error.status, msg: error.message });
+      .catch((error) => {
+        if (error.code === 'ERR_NETWORK') {
+          setError({
+            message: 'No internet connection, please try again later',
+          });
+        } else {
+          const { data, status } = error.response;
+          setError({ status: status, message: data.msg });
+        }
+
         setIsLoading(false);
       });
   }, [article_id]);
@@ -48,9 +56,10 @@ const ArticleDetail = () => {
         // Set the confirm message to disappear
         setTimeout(() => {
           setUpdateMsg(null);
-        }, 5000);
+        }, 2500);
       })
       .catch((error) => {
+        console.log(error.response);
         setUpdateProgress(null);
         if (error.code === 'ERR_NETWORK') {
           setUpdateError('Internet Issues, please try again later!');
@@ -61,7 +70,7 @@ const ArticleDetail = () => {
   };
 
   if (isLoading) return <Spinner />;
-  if (error) return <ErrorMsg status={error.status} message={error.msg} />;
+  if (error) return <ErrorPage error={error} />;
   return (
     <section className='article'>
       <article className='article-detail'>
@@ -95,6 +104,7 @@ const ArticleDetail = () => {
             votes={article.votes}
             update={updateArticle}
             message={updateMsg}
+            progress={updateProgress}
             error={updateError}
           />
           <p>{article.comment_count} Comments</p>

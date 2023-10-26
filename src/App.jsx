@@ -4,7 +4,7 @@ import './App.css';
 // Pages
 import HomePage from './pages/Home/HomePage';
 import Articles from './pages/Articles/ArticlesPage';
-import NotFound from './pages/Error/NotFoundPage';
+import ErrorPage from './pages/Error/ErrorPage';
 
 // Components
 import NavBar from './components/Persistent/NavBar';
@@ -21,7 +21,7 @@ const App = () => {
       </header>
       <main>
         <Routes>
-          <Route path='*' element={<NotFound />} />
+          <Route path='*' element={<ErrorPage />} />
           <Route path='/' element={<HomePage />} />
           <Route path='/articles' element={<Articles />} />
           <Route path='/articles/:article_id' element={<ArticleDetail />} />

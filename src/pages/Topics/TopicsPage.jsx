@@ -5,7 +5,7 @@ import '../../styles/topics.css';
 
 import { getTopics } from '../../api/api';
 import Spinner from '../../components/Basic/Spinner';
-import ErrorMsg from '../../components/Basic/ErrorMsg';
+import ErrorPage from '../Error/ErrorPage';
 
 const TopicsPage = () => {
   /* 
@@ -26,14 +26,21 @@ const TopicsPage = () => {
         setError(null);
         setIsLoading(false);
       })
-      .catch(({ data: { error } }) => {
-        setError({ status: error.status, msg: error.message });
+      .catch((error) => {
+        if (error.code === 'ERR_NETWORK') {
+          setError({
+            message: 'No internet connection, please try again later',
+          });
+        } else {
+          const { data, status } = error.response;
+          setError({ status: status, message: data.msg });
+        }
         setIsLoading(false);
       });
   }, []);
 
   if (isLoading) return <Spinner />;
-  if (error) return <ErrorMsg status={error.status} message={error.msg} />;
+  if (error) return <ErrorPage error={error} />;
 
   const url = '/articles?topic=';
   return (
