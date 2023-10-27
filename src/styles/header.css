@@ -17,6 +17,10 @@
   padding: 0.25em;
 }
 
+.user-login-container h2 {
+  font-size: 1.25rem;
+}
+
 /* Logged In User */
 
 .user-header {
