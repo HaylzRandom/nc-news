@@ -39,7 +39,7 @@ const FilterArticles = ({ topics, topic, sort, order, setParams }) => {
       <h3 className='filter-heading'>Filter Results</h3>
       <form onSubmit={handleSubmit} className='query-container'>
         <fieldset className='query-list'>
-          <legend>Filter by Topic</legend>
+          <legend className='query-legend'>Filter by Topic</legend>
           <label htmlFor='all' className='query-list_label'>
             <input
               type='radio'
@@ -68,7 +68,7 @@ const FilterArticles = ({ topics, topic, sort, order, setParams }) => {
           })}
         </fieldset>
         <fieldset className='query-list'>
-          <legend>Sort By</legend>
+          <legend className='query-legend'>Sort By</legend>
           {sortQueries.map(({ name, value }) => {
             return (
               <label htmlFor={name} key={value}>
@@ -86,7 +86,7 @@ const FilterArticles = ({ topics, topic, sort, order, setParams }) => {
           })}
         </fieldset>
         <fieldset className='query-list'>
-          <legend>Order By</legend>
+          <legend className='query-legend'>Order By</legend>
           <label htmlFor='desc'>
             <input
               type='radio'
