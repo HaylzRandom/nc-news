@@ -17,27 +17,28 @@
 }
 
 .query-container {
-  padding: 0.5em;
+  padding: 1em;
   background-color: var(--bg-color);
   border: 1px solid black;
   display: flex;
   flex-wrap: wrap;
-  /* justify-content: center; */
   gap: 1em;
   box-shadow: 1px 0 2px 1px black;
-  /* background-color: var(--bg-color); */
 }
 
 .query-list {
   width: 100%;
   display: flex;
-  /* flex-direction: column; */
   align-items: flex-start;
   flex-wrap: wrap;
   gap: 0.5em;
   background-color: white;
   accent-color: var(--bg-secondary-color);
-  /* padding: 0.5em 0.75em; */
+}
+
+.sortBy,
+.orderBy {
+  width: 100%;
 }
 
 .query-legend {
@@ -56,13 +57,16 @@
 .query-submit-btn {
   width: 150px;
   padding: 0.5em;
+  border: 1px solid black;
   border-radius: 2rem;
   margin: 0 auto;
+  box-shadow: 0 0 3px 1px rgba(85, 82, 82, 0.6);
 }
 
 .query-submit-btn:hover {
   background: var(--bg-secondary-color);
   color: var(--font-secondary-color);
+  border-color: var(--bg-secondary-color);
   font-weight: 700;
   box-shadow: 2px 2px 5px 2px rgba(0, 0, 0, 0.75);
 }
@@ -134,7 +138,6 @@
 
 .article-detail {
   width: 100%;
-
   padding: 0.5em;
   display: flex;
   flex-direction: column;
@@ -164,11 +167,11 @@
 
 .article-detail_container,
 .comment-detail_container {
-  width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
+
 
 .article hr {
   border: 1px solid var(--bg-secondary-color);
@@ -179,24 +182,57 @@
 /* Media Queries */
 @media screen and (min-width: 375px) {
   .article-detail_title {
-    width: 50%;
+    width: 20ch;
+    font-size: 1.25rem;
   }
 }
+
 @media screen and (min-width: 768px) {
+  .query-container {
+    flex-direction: column;
+  }
+  .sortBy,
+  .orderBy {
+    width: 70%;
+  }
   .article-detail {
     gap: 2em;
   }
 
   .article-detail_title {
-    width: 70%;
+    width: 30ch;
+    font-size: 1.75rem;
   }
+
+  .article-detail_topic {
+    font-size: 1.5rem;
+  }
+
   .article-detail_img {
     max-width: calc(100% - 150px);
     margin: 0 auto;
   }
+
+  .article-detail_comment-count {
+    font-size: 1.25rem;
+  }
 }
 
 @media screen and (min-width: 1024px) {
+  .sortBy,
+  .orderBy {
+    width: 50%;
+  }
+
+  .articles-container {
+    gap: 1.25em;
+  }
+
+  .article-detail_title {
+    width: 40ch;
+    font-size: 2rem;
+  }
+
   .article-detail_img {
     max-width: calc(100% - 300px);
   }

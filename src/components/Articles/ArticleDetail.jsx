@@ -108,7 +108,9 @@ const ArticleDetail = () => {
             progress={updateProgress}
             error={updateError}
           />
-          <p>{article.comment_count} Comments</p>
+          <p className='article-detail_comment-count'>
+            {article.comment_count} Comments
+          </p>
         </div>
         <hr />
         <CommentList article_id={article_id} />
