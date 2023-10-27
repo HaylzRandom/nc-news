@@ -1,0 +1,118 @@
+/* Comments List */
+
+.comments {
+  width: 100%;
+}
+
+.comment-login {
+  font-weight: 500;
+  text-align: justify;
+}
+
+.comment-list {
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+}
+
+.no-comments {
+  margin-top: 1em;
+  font-weight: 500;
+}
+
+/* Comment details */
+
+.comment_container {
+  display: flex;
+  flex-direction: column;
+}
+
+.comment_username {
+  font-weight: 500;
+}
+
+.comment-detail_container {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+}
+
+.comment-detail_login-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1em;
+}
+
+/* Delete button for comment */
+
+.comment-delete-btn {
+  border: 1px solid rgba(44, 42, 42, 0.8);
+  border-radius: 0.25em;
+  padding: 0.35em;
+  box-shadow: 0 0 3px 1px rgba(85, 82, 82, 0.6);
+  color: var(--bg-secondary-color);
+}
+
+.comment-delete-btn:hover {
+  border-color: var(--bg-secondary-color);
+  background-color: var(--bg-secondary-color);
+  color: var(--font-secondary-color);
+}
+
+/* New Comment */
+
+.comment-new-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.75em;
+  padding: 0.5em;
+}
+
+.comment-new-label {
+  font-weight: 500;
+}
+
+.comment-new-body {
+  width: 90%;
+  height: 100px;
+}
+
+.comment-new-btn {
+  border: 1px solid black;
+  border-radius: 0.25em;
+  padding: 0.5em;
+  box-shadow: 0 0 3px 1px rgba(85, 82, 82, 0.6);
+}
+
+/* TODO - Figure out stylings for new comment button */
+.comment-new-btn:hover {
+  opacity: 0.7;
+}
+
+/* Media Queries */
+
+@media screen and (min-width: 425px) {
+  .no-comments {
+    text-align: center;
+    font-size: 1.1rem;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .comment-login {
+    font-size: 1.25rem;
+    text-align: center;
+  }
+
+  .no-comments {
+    font-size: 1.4rem;
+  }
+
+  .comment-delete-btn {
+    font-size: 1.25rem;
+  }
+}

@@ -21,6 +21,7 @@
   box-shadow: 0 0 3px 1px rgba(85, 82, 82, 0.6);
 }
 
+/* TODO - Choose nicer colours for vote buttons */
 .thumbsUp {
   border: 1px solid green;
   color: green;

@@ -43,19 +43,28 @@ const CommentNew = ({ article, setNewComment, user }) => {
   if (processing) return <p>Creating Comment...</p>;
   return (
     <>
-      <form onSubmit={handleSubmit}>
-        <label htmlFor='body'>Comment:</label>
+      <form onSubmit={handleSubmit} className='comment-new-form'>
+        <label htmlFor='body' className='comment-new-label'>
+          Comment:
+        </label>
         <textarea
+          className='comment-new-body'
           name='body'
           id='body'
-          cols='30'
-          rows='10'
           placeholder='Enter comment here...'
           onChange={handleChange}
           value={body}
+          // cols={20}
+          // rows={5}
           required
         ></textarea>
-        <button type='submit'>Add Comment</button>
+        <button
+          type='submit'
+          className='comment-new-btn'
+          title='Add New Comment'
+        >
+          Add Comment
+        </button>
       </form>
     </>
   );
