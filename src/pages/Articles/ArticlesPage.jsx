@@ -9,8 +9,11 @@ import Spinner from '../../components/Basic/Spinner';
 import { useSearchParams } from 'react-router-dom';
 import FilterArticles from '../../components/Articles/FilterArticles';
 import ErrorPage from '../Error/ErrorPage';
+import useTitle from '../../hooks/useTitle';
 
 const Articles = () => {
+  useTitle('Articles');
+
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
   const [articles, setArticles] = useState(null);

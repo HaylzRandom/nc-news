@@ -9,9 +9,13 @@ import Spinner from '../Basic/Spinner';
 import CommentList from '../Comments/CommentList';
 import Votes from '../Votes';
 import ErrorPage from '../../pages/Error/ErrorPage';
+import useTitle from '../../hooks/useTitle';
 
 const ArticleDetail = () => {
   const { article_id } = useParams();
+
+  // TODO - Figure out how to populate with article title properly
+  useTitle('Article');
 
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);

@@ -6,6 +6,7 @@ import '../../styles/topics.css';
 import { getTopics } from '../../api/api';
 import Spinner from '../../components/Basic/Spinner';
 import ErrorPage from '../Error/ErrorPage';
+import useTitle from '../../hooks/useTitle';
 
 const TopicsPage = () => {
   /* 
@@ -13,6 +14,8 @@ const TopicsPage = () => {
     Map topics to links
     Set links to to to relevant articles with topic 
   */
+
+  useTitle('Topics');
 
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);

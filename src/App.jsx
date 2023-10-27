@@ -11,6 +11,7 @@ import NavBar from './components/Persistent/NavBar';
 import Header from './components/Persistent/Header';
 import ArticleDetail from './components/Articles/ArticleDetail';
 import TopicsPage from './pages/Topics/TopicsPage';
+import UsersPage from './pages/Users/UsersPage';
 
 const App = () => {
   return (
@@ -27,6 +28,7 @@ const App = () => {
           <Route path='/articles' element={<Articles />} />
           <Route path='/articles/:article_id' element={<ArticleDetail />} />
           <Route path='/topics' element={<TopicsPage />} />
+          <Route path='/users' element={<UsersPage />} />
         </Routes>
       </main>
     </div>
