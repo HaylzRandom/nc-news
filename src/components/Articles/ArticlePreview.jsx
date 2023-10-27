@@ -22,16 +22,24 @@ const ArticlePreview = ({ article }) => {
       />
       <div className='article-preview-details'>
         <Link to={`/articles/${article_id}`} className='article-preview-title'>
-          {title}
+          <h4>{title}</h4>
         </Link>
         <div className='article-preview-details_information'>
           <Link to={`/users/${author}`} className='article-preview-author'>
             {author}
           </Link>
-          <p className='article-date'>{created}</p>
+          <p className='article-preview-date'>{created}</p>
         </div>
-        <p>Votes: {votes}</p>
-        <p>Comments: {comment_count}</p>
+        <div className='article-preview-details_information'>
+          {' '}
+          <p>
+            <span className='article-preview-label'>Votes:</span> {votes}
+          </p>
+          <p>
+            <span className='article-preview-label'>Comments:</span>{' '}
+            {comment_count}
+          </p>
+        </div>
       </div>
     </article>
   );
