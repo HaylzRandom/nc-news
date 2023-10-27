@@ -1,0 +1,11 @@
+.users {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2em;
+}
+
+.users-heading {
+  text-align: center;
+  font-size: 2.5rem;
+}
