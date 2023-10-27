@@ -7,6 +7,12 @@
   align-items: center;
 }
 
+.nav-link:hover {
+  font-weight: 600;
+  color: var(--font-secondary-color);
+  text-decoration-color: var(--font-secondary-color);
+}
+
 /* Media Queries */
 
 @media screen and (min-width: 768px) {

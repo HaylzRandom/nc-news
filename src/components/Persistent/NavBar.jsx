@@ -4,7 +4,7 @@ import '../../styles/navBar.css';
 
 const NavBar = () => {
   return (
-    <nav className='nav'>
+    <nav className='nav' aria-label='primary'>
       <Link to='/' className='nav-link'>
         Home
       </Link>

@@ -92,13 +92,14 @@ const ArticleDetail = () => {
         />
         <div className='article-detail_container'>
           <Link className='article-detail_author' to={`/users/username`}>
-            {article.author}
+            By {article.author}
           </Link>
           <p className='article-detail_date'>{formatDate}</p>
         </div>
 
         <p className='article-detail_body'>{article.body}</p>
-        <div className='article-detail_container interactive'>
+        <hr />
+        <div className='article-detail_container '>
           <Votes
             type={'Votes'}
             votes={article.votes}
@@ -109,6 +110,7 @@ const ArticleDetail = () => {
           />
           <p>{article.comment_count} Comments</p>
         </div>
+        <hr />
         <CommentList article_id={article_id} />
       </article>
     </section>

@@ -3,8 +3,10 @@
 /* Variables */
 
 :root {
-  --color: #091625;
-  --bg-color: #f5b2b2;
+  --font-color: #252222;
+  --font-secondary-color: #ffffff;
+  --bg-color: #f2efec;
+  --bg-secondary-color: #b80000;
 }
 
 /* General Styles */
@@ -12,17 +14,16 @@
 body {
   /* padding: 1em; */
   font-family: 'Fira Sans', sans-serif;
-  color: var(--color);
+  color: var(--font-color);
   font-size: 16px;
 }
 
 button {
   cursor: pointer;
-  font: inherit;
-}
-
-button:hover {
-  opacity: 0.8;
+  border: 0;
+  font-family: inherit;
+  font-size: 100%;
+  padding: 0;
 }
 
 input[type='radio'] {
@@ -37,7 +38,8 @@ a {
 a:hover {
   text-decoration: underline;
   text-underline-offset: 2px;
-  color: rebeccapurple;
+  text-decoration-color: var(--bg-secondary-color);
+  color: var(--bg-secondary-color);
 }
 
 /* Header */
@@ -48,7 +50,8 @@ header {
   align-items: center;
   gap: 0.5em;
   padding: 1em;
-  background-color: var(--bg-color);
+  background-color: var(--bg-secondary-color);
+  color: var(--font-secondary-color);
 }
 
 .header-heading {
@@ -59,6 +62,7 @@ header {
 
 main {
   padding: 1em;
+  background-color: var(--bg-color);
 }
 
 /* Media Queries */

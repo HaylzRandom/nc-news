@@ -48,7 +48,7 @@ const Header = () => {
     <div className='user-container'>
       {!user ? (
         <div className='user-login-container'>
-          <h3>Want to log in?</h3>
+          <h2>Want to log in?</h2>
           <button onClick={handleLogin}>Login</button>
         </div>
       ) : (

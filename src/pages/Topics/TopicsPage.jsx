@@ -46,7 +46,7 @@ const TopicsPage = () => {
   return (
     <section className='topics'>
       <h1 className='topics-heading'>Topics</h1>
-      <nav className='topics-nav'>
+      <nav className='topics-nav' aria-label='topics navigation'>
         {topics.map((topic) => {
           return (
             <Link

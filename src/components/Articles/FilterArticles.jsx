@@ -27,7 +27,7 @@ const FilterArticles = ({ topics, topic, sort, order, setParams }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     // If all topics is chosen
-    if (selectedTopic === 'all') {
+    if (selectedTopic === 'all-topics') {
       setParams(null, selectedSortQuery, sortOrder);
     } else {
       setParams(selectedTopic, selectedSortQuery, sortOrder);
@@ -39,17 +39,16 @@ const FilterArticles = ({ topics, topic, sort, order, setParams }) => {
       <h3 className='filter-heading'>Filter Results</h3>
       <form onSubmit={handleSubmit} className='query-container'>
         <fieldset className='query-list'>
-          <legend>Filter by Topic</legend>
-          <label htmlFor='all' className='query-list_label'>
+          <legend className='query-legend'>Filter by Topic</legend>
+          <label htmlFor='all-topics' className='query-list_label'>
             <input
               type='radio'
-              name='all'
-              value='all'
-              aria-label=''
-              checked={selectedTopic === 'all'}
+              name='all-topics'
+              value='all-topics'
+              checked={selectedTopic === 'all-topics'}
               onChange={handleTopicChange}
             />
-            All
+            All Topics
           </label>
           {topics.map((topic) => {
             const { slug } = topic;
@@ -68,7 +67,7 @@ const FilterArticles = ({ topics, topic, sort, order, setParams }) => {
           })}
         </fieldset>
         <fieldset className='query-list'>
-          <legend>Sort By</legend>
+          <legend className='query-legend'>Sort By</legend>
           {sortQueries.map(({ name, value }) => {
             return (
               <label htmlFor={name} key={value}>
@@ -86,7 +85,7 @@ const FilterArticles = ({ topics, topic, sort, order, setParams }) => {
           })}
         </fieldset>
         <fieldset className='query-list'>
-          <legend>Order By</legend>
+          <legend className='query-legend'>Order By</legend>
           <label htmlFor='desc'>
             <input
               type='radio'
