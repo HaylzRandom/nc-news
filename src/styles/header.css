@@ -5,7 +5,8 @@
   padding: 0.25em;
   border: 1px solid black;
   border-radius: 0.5em;
-  background-color: white;
+  background-color: var(--bg-color);
+  color: var(--font-color);
 }
 
 /* Log In User */
