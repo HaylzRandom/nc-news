@@ -5,6 +5,7 @@ import Votes from '../Votes';
 import { deleteCommentById, updateCommentVote } from '../../api/api';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrash } from '@fortawesome/free-solid-svg-icons';
+import MessageDisplay from '../Basic/MessageDisplay';
 
 const CommentDetails = ({ comment, user, setCommentDeleted }) => {
   const { author, body, created_at, votes, comment_id } = comment;
@@ -76,9 +77,9 @@ const CommentDetails = ({ comment, user, setCommentDeleted }) => {
       });
   };
 
-  if (deleteProgress) return <p>{deleteProgress}</p>;
-  if (deleteMsg) return <p>{deleteMsg}</p>;
-  if (deleteError) return <p>{deleteError}</p>;
+  if (deleteProgress) return <MessageDisplay message={deleteProgress} />;
+  if (deleteMsg) return <MessageDisplay message={deleteMsg} />;
+  if (deleteError) return <MessageDisplay message={deleteError} />;
 
   return (
     <>

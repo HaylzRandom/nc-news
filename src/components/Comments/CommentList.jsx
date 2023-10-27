@@ -7,6 +7,7 @@ import { getCommentsForArticle } from '../../api/api';
 import Spinner from '../Basic/Spinner';
 import CommentDetails from './CommentDetails';
 import CommentNew from './CommentNew';
+import MessageDisplay from '../Basic/MessageDisplay';
 import { UserContext } from '../../contexts/User';
 import ErrorPage from '../../pages/Error/ErrorPage';
 
@@ -67,7 +68,7 @@ const CommentList = ({ article_id }) => {
         </>
       )}
       {confirmMsg && user ? (
-        <p>{confirmMsg}</p>
+        <MessageDisplay message={confirmMsg} />
       ) : (
         user && (
           <CommentNew
