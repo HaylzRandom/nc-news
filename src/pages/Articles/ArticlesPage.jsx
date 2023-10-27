@@ -73,7 +73,7 @@ const Articles = () => {
       </h2>
       <FilterArticles
         topics={topics}
-        topic={topicQuery ?? 'all'}
+        topic={topicQuery ?? 'all-topics'}
         sort={sortByQuery ?? 'created_at'}
         order={orderQuery ?? 'desc'}
         setParams={setParams}

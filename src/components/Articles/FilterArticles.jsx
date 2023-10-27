@@ -27,7 +27,7 @@ const FilterArticles = ({ topics, topic, sort, order, setParams }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     // If all topics is chosen
-    if (selectedTopic === 'all') {
+    if (selectedTopic === 'all-topics') {
       setParams(null, selectedSortQuery, sortOrder);
     } else {
       setParams(selectedTopic, selectedSortQuery, sortOrder);
@@ -40,16 +40,15 @@ const FilterArticles = ({ topics, topic, sort, order, setParams }) => {
       <form onSubmit={handleSubmit} className='query-container'>
         <fieldset className='query-list'>
           <legend className='query-legend'>Filter by Topic</legend>
-          <label htmlFor='all' className='query-list_label'>
+          <label htmlFor='all-topics' className='query-list_label'>
             <input
               type='radio'
-              name='all'
-              value='all'
-              aria-label=''
-              checked={selectedTopic === 'all'}
+              name='all-topics'
+              value='all-topics'
+              checked={selectedTopic === 'all-topics'}
               onChange={handleTopicChange}
             />
-            All
+            All Topics
           </label>
           {topics.map((topic) => {
             const { slug } = topic;
