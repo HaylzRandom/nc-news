@@ -1,17 +1,5 @@
 /* User Container */
 
-/* .user-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  border: 1px solid black;
-  border-radius: 0.5em;
-  padding: 1em;
-  background-color: white;
-  margin-right: 2em;
-} */
-
 .user-container {
   display: flex;
   padding: 0.25em;
@@ -52,6 +40,10 @@
 /* Media Queries */
 
 @media screen and (min-width: 768px) {
+  .user-login-container {
+    padding: 0.5em;
+  }
+
   .user-header {
     gap: 1em;
     padding: 1em;
@@ -63,5 +55,11 @@
 
   .user-header_subContainer {
     justify-content: center;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .user-login-container {
+    padding: 1em;
   }
 }
