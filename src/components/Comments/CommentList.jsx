@@ -1,6 +1,9 @@
 import { useEffect, useState, useContext } from 'react';
 
+import '../../styles/comments.css';
+
 import { getCommentsForArticle } from '../../api/api';
+
 import Spinner from '../Basic/Spinner';
 import CommentDetails from './CommentDetails';
 import CommentNew from './CommentNew';
@@ -55,7 +58,14 @@ const CommentList = ({ article_id }) => {
   if (error) return <ErrorPage error={error} />;
   return (
     <section className='comments'>
-      {!user && <p>Want to add a comment? Make sure to login!</p>}
+      {!user && (
+        <>
+          <p className='comment-login'>
+            Want to add a comment? Make sure to login!
+          </p>
+          <hr />
+        </>
+      )}
       {confirmMsg && user ? (
         <p>{confirmMsg}</p>
       ) : (
@@ -81,7 +91,10 @@ const CommentList = ({ article_id }) => {
           })}
         </ul>
       ) : (
-        <p className='no-comments'>No comments found, want to add one?</p>
+        <>
+          <hr />
+          <p className='no-comments'>No comments found, want to add one?</p>
+        </>
       )}
     </section>
   );

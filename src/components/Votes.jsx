@@ -35,17 +35,19 @@ const Votes = ({ type, votes, update, message, progress, error }) => {
                 updateVotes(1, 'positive');
               }}
               className='votes-btn thumbsUp'
+              title='Thumbs Up'
             >
               <FontAwesomeIcon icon={faThumbsUp} />
             </button>
           )}
           {userVotes !== 1 && (
             <button
-              aria-label='up vote'
+              aria-label='down vote'
               onClick={() => {
                 updateVotes(-1, 'negative');
               }}
               className='votes-btn thumbsDown'
+              title='Thumbs Down'
             >
               <FontAwesomeIcon icon={faThumbsDown} />
             </button>

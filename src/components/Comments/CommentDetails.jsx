@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 import { format } from 'date-fns';
 import Votes from '../Votes';
 import { deleteCommentById, updateCommentVote } from '../../api/api';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTrash } from '@fortawesome/free-solid-svg-icons';
 
 const CommentDetails = ({ comment, user, setCommentDeleted }) => {
   const { author, body, created_at, votes, comment_id } = comment;
@@ -80,29 +82,34 @@ const CommentDetails = ({ comment, user, setCommentDeleted }) => {
 
   return (
     <>
-      <li>
-        <Link className='comment_username'>{author}</Link>
+      <li className='comment_container'>
         <p>{body}</p>
+        <Link className='comment_username'>{author}</Link>
         <div className='comment-detail_container'>
           <p>{createdDate}</p>
-          <Votes
-            type={'votes'}
-            votes={votes}
-            update={handleUpdateComment}
-            message={updateMsg}
-            progress={updateProgress}
-            error={updateError}
-          />
-          {user && user.username === author && (
-            <button
-              type='button'
-              onClick={() => handleDeleteComment(comment_id)}
-            >
-              Delete
-            </button>
-          )}
+          <div className='comment-detail_login-container'>
+            <Votes
+              type={'Votes'}
+              votes={votes}
+              update={handleUpdateComment}
+              message={updateMsg}
+              progress={updateProgress}
+              error={updateError}
+            />
+            {user && user.username === author && (
+              <button
+                type='button'
+                onClick={() => handleDeleteComment(comment_id)}
+                className='comment-delete-btn'
+                title='Delete Comment'
+              >
+                <FontAwesomeIcon icon={faTrash} />
+              </button>
+            )}
+          </div>
         </div>
       </li>
+      <hr />
     </>
   );
 };
