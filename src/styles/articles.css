@@ -173,6 +173,7 @@
 .article hr {
   border: 1px solid var(--bg-secondary-color);
   width: calc(100% - 5px);
+  margin-block: 1em;
 }
 
 /* Media Queries */

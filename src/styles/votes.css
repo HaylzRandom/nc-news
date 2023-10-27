@@ -1,0 +1,48 @@
+.votes-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25em;
+}
+
+.votes-label {
+  font-weight: 700;
+}
+
+.votes-btn-container {
+  display: flex;
+  gap: 1em;
+}
+
+.votes-btn {
+  cursor: pointer;
+  border-radius: 0.25em;
+  padding: 0.35em;
+  box-shadow: 0 0 3px 1px rgba(85, 82, 82, 0.6);
+}
+
+.thumbsUp {
+  border: 1px solid green;
+  color: green;
+}
+
+.thumbsDown {
+  border: 1px solid var(--bg-secondary-color);
+  color: var(--bg-secondary-color);
+}
+
+.thumbsUp:hover {
+  background-color: green;
+  color: white;
+}
+
+.thumbsDown:hover {
+  background-color: var(--bg-secondary-color);
+  color: white;
+}
+
+.votes-progress,
+.votes-thanks {
+  font-weight: 600;
+  padding: 0.35em;
+}

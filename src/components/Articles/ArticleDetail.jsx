@@ -110,7 +110,8 @@ const ArticleDetail = () => {
           />
           <p>{article.comment_count} Comments</p>
         </div>
-        {/* <CommentList article_id={article_id} /> */}
+        <hr />
+        <CommentList article_id={article_id} />
       </article>
     </section>
   );
