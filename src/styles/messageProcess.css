@@ -1,0 +1,12 @@
+.message-display {
+  text-align: center;
+  font-weight: bold;
+}
+
+/* Media Queries */
+
+@media screen and (min-width: 768px) {
+  .message-display {
+    font-size: 1.5rem;
+  }
+}
