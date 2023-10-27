@@ -8,6 +8,7 @@
 }
 
 .nav-link:hover {
+  font-weight: 600;
   color: var(--font-secondary-color);
   text-decoration-color: var(--font-secondary-color);
 }

@@ -63,6 +63,7 @@ header {
 
 main {
   padding: 1em;
+  background-color: var(--bg-color);
 }
 
 /* Media Queries */
