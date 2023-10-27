@@ -45,8 +45,8 @@ const TopicsPage = () => {
   const url = '/articles?topic=';
   return (
     <section className='topics'>
-      <h1>Topics</h1>
-      <ul role='nav' className='topics-nav'>
+      <h1 className='topics-heading'>Topics</h1>
+      <nav className='topics-nav'>
         {topics.map((topic) => {
           return (
             <Link
@@ -58,7 +58,7 @@ const TopicsPage = () => {
             </Link>
           );
         })}
-      </ul>
+      </nav>
     </section>
   );
 };
