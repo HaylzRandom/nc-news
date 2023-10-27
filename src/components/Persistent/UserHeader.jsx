@@ -4,7 +4,8 @@ const UserHeader = ({ user }) => {
     <article className='user-header'>
       <img src={avatar_url} alt='' className='user-header_img' />
       <div className='user-header_subContainer'>
-        <h3 className='user-header_name'>{name}</h3>
+        {/* Will eventually link to a profile page */}
+        <h2 className='user-header_name'>{name}</h2>
         <p className='user-header_username'>{username}</p>
       </div>
     </article>

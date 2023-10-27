@@ -1,4 +1,6 @@
-.user-container {
+/* User Container */
+
+/* .user-container {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -8,14 +10,31 @@
   padding: 1em;
   background-color: white;
   margin-right: 2em;
+} */
+
+.user-container {
+  display: flex;
+  padding: 0.25em;
+  border: 1px solid black;
+  border-radius: 0.5em;
+  background-color: white;
 }
+
+/* Log In User */
+
+.user-login-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  padding: 0.25em;
+}
+
+/* Logged In User */
 
 .user-header {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
   gap: 0.5em;
+  padding: 0.25em;
 }
 
 .user-header_subContainer {
@@ -24,8 +43,25 @@
 }
 
 .user-header_img {
-  width: 100px;
+  width: 50px;
   aspect-ratio: 1;
   border-radius: 50%;
   border: 1px solid black;
+}
+
+/* Media Queries */
+
+@media screen and (min-width: 768px) {
+  .user-header {
+    gap: 1em;
+    padding: 1em;
+  }
+
+  .user-header_img {
+    width: 70px;
+  }
+
+  .user-header_subContainer {
+    justify-content: center;
+  }
 }
