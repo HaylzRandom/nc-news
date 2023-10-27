@@ -4,6 +4,7 @@
 
 :root {
   --color: #091625;
+  --bg-color: #f5b2b2;
 }
 
 /* General Styles */
@@ -28,6 +29,17 @@ input[type='radio'] {
   cursor: pointer;
 }
 
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+a:hover {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  color: rebeccapurple;
+}
+
 /* Header */
 header {
   display: flex;
@@ -36,15 +48,25 @@ header {
   align-items: center;
   gap: 0.5em;
   padding: 1em;
-  background-color: #f5b2b2;
+  background-color: var(--bg-color);
 }
 
 .header-heading {
   margin-top: 0.5em;
 }
 
+/* Main */
+
+main {
+  padding: 1em;
+}
+
 /* Media Queries */
 @media screen and (min-width: 768px) {
+  a:hover {
+    text-underline-offset: 5px;
+  }
+
   header {
     flex-direction: row;
     justify-content: space-between;
@@ -53,6 +75,10 @@ header {
 
   .header-divide {
     justify-content: space-between;
+  }
+
+  main {
+    padding: 2em;
   }
 }
 
