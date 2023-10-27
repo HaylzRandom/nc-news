@@ -1,11 +1,18 @@
-body {
-  padding: 1em;
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans:wght@400;500;600;700&display=swap');
+
+/* Variables */
+
+:root {
+  --color: #091625;
 }
 
-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+/* General Styles */
+
+body {
+  /* padding: 1em; */
+  font-family: 'Fira Sans', sans-serif;
+  color: var(--color);
+  font-size: 16px;
 }
 
 button {
@@ -19,4 +26,38 @@ button:hover {
 
 input[type='radio'] {
   cursor: pointer;
+}
+
+/* Header */
+header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5em;
+  padding: 1em;
+  background-color: #f5b2b2;
+}
+
+.header-heading {
+  margin-top: 0.5em;
+}
+
+/* Media Queries */
+@media screen and (min-width: 768px) {
+  header {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .header-divide {
+    justify-content: space-between;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  header {
+    padding: 2em;
+  }
 }

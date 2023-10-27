@@ -16,6 +16,7 @@ const App = () => {
   return (
     <div>
       <header>
+        <h1 className='header-heading'>NC News</h1>
         <NavBar />
         <Header />
       </header>
