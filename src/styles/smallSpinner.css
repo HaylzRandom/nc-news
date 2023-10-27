@@ -1,0 +1,50 @@
+.small-spinner__overlay {
+  max-height: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2em;
+}
+
+.small-spinner__message {
+  font-size: 1.5rem;
+}
+
+.small-spinner__container {
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+  border: 3px solid var(--bg-color);
+  border-radius: 50%;
+  border-top-color: var(--bg-secondary-color);
+  animation: spin 1s ease-in-out infinite;
+  -webkit-animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+  to {
+    -webkit-transform: rotate(360deg);
+  }
+}
+
+@-webkit-keyframes spin {
+  to {
+    -webkit-transform: rotate(360deg);
+  }
+}
+
+/* Media Queries */
+
+@media screen and (min-width: 768px) {
+  .small-spinner__overlay {
+    margin-right: 2em;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .small-spinner__container {
+    width: 100px;
+    height: 100px;
+  }
+}

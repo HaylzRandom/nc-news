@@ -4,7 +4,7 @@ import '../../styles/header.css';
 
 import { UserContext } from '../../contexts/User';
 import { getUserByUsername } from '../../api/api';
-import Spinner from '../Basic/Spinner';
+import SmallSpinner from '../Basic/SmallSpinner';
 import UserHeader from './UserHeader';
 import ErrorPage from '../../pages/Error/ErrorPage';
 import ErrorMsg from '../Basic/ErrorMsg';
@@ -41,7 +41,7 @@ const Header = () => {
       });
   }, [newUser, setUser]);
 
-  if (isLoading) return <Spinner />;
+  if (isLoading) return <SmallSpinner />;
   if (error) return <ErrorMsg status={error.status} message={error.message} />;
 
   return (
