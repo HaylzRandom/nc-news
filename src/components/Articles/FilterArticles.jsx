@@ -66,7 +66,7 @@ const FilterArticles = ({ topics, topic, sort, order, setParams }) => {
             );
           })}
         </fieldset>
-        <fieldset className='query-list'>
+        <fieldset className='query-list sortBy'>
           <legend className='query-legend'>Sort By</legend>
           {sortQueries.map(({ name, value }) => {
             return (
@@ -84,7 +84,7 @@ const FilterArticles = ({ topics, topic, sort, order, setParams }) => {
             );
           })}
         </fieldset>
-        <fieldset className='query-list'>
+        <fieldset className='query-list orderBy'>
           <legend className='query-legend'>Order By</legend>
           <label htmlFor='desc'>
             <input
