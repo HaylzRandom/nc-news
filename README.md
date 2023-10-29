@@ -60,3 +60,4 @@ Run in terminal:
 - [ ] Allow deletion of articles (Own users / Admin User)
 - [ ] Make navigation on mobile view to be more nicely styled
 - [ ] Implement a light/dark mode
+- [ ] Improve accessibility across whole entire site
