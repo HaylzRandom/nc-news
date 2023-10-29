@@ -11,7 +11,7 @@ A React frontend web application that utilises a custom [News API](https://githu
     - Created Date
     - Number of votes an article has
     - Who wrote the article
-  - Order By Ascending/Descending 
+  - Order By Ascending/Descending
 
 ### Live Demo
 
@@ -50,4 +50,11 @@ Run in terminal:
 
 ### Roadmap
 
-***Coming Soon***
+- [ ] Home Page
+- [ ] Users Page
+- [ ] Styled Not Found page
+- [ ] Styled Error component
+- [ ] Ability to create a topic
+- [ ] Ability to create a new article
+- [ ] Ability to create a new user
+- [ ] Login system
