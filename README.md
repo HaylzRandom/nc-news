@@ -25,9 +25,6 @@ A React frontend web application that utilises a custom [News API](https://githu
 ![Netlify](https://img.shields.io/badge/Netlify-00C7B7?style=for-the-badge&logo=netlify&logoColor=white)
 ![Axios](https://img.shields.io/badge/Axios-5A29E4?style=for-the-badge&logo=axios&logoColor=white)
 
-
-
-
 ### API
 
 [NC News API GitHub](https://github.com/HaylzRandom/nc-news-api)
@@ -54,7 +51,12 @@ Run in terminal:
 - [ ] Users Page
 - [ ] Styled Not Found page
 - [ ] Styled Error component
-- [ ] Ability to create a topic
-- [ ] Ability to create a new article
-- [ ] Ability to create a new user
-- [ ] Login system
+- [ ] Allow new user to be created
+- [ ] Limit pages to certain users roles e.g. Admin role
+- [ ] Allow admins to create new topics
+- [ ] Limit votes to users that are logged in
+- [ ] Limit votes to only allows users to vote once per article/comment
+- [ ] Allow admins to manage user accounts / own user can update account
+- [ ] Allow deletion of articles (Own users / Admin User)
+- [ ] Make navigation on mobile view to be more nicely styled
+- [ ] Implement a light/dark mode
