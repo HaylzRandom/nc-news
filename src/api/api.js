@@ -36,6 +36,8 @@ export const updateArticleVote = (article_id, vote_count) => {
     });
 };
 
+// TODO - Delete article (Admin or own)
+
 // Comments
 
 export const getCommentsForArticle = (article_id) => {
@@ -58,6 +60,7 @@ export const addComment = (body, article_id, username) => {
     });
 };
 
+// TODO - Update to link vote to user
 export const updateCommentVote = (comment_id, comment_count) => {
   return request
     .patch(`comments/${comment_id}`, {
@@ -81,9 +84,21 @@ export const getUserByUsername = (username) => {
   });
 };
 
+// TODO - Get all users
+
+// TODO - Create New User
+
+// TODO - Update User
+
+// TODO - Delete User
+
+// TODO - Login User using email/username/password
+
 // Topics
 export const getTopics = () => {
   return request.get('topics').then(({ data: { topics } }) => {
     return topics;
   });
 };
+
+// TODO - Get Random article of day for homepage

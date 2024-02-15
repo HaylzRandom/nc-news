@@ -2,6 +2,7 @@ import useTitle from '../../hooks/useTitle';
 
 import '../../styles/home.css';
 
+// TODO - Add random article to display on page
 const HomePage = () => {
   useTitle('Home');
   return (
